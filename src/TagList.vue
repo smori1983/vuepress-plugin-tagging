@@ -31,10 +31,7 @@ export default {
         if (!this.tags[tag]) {
           this.tags[tag] = [];
         }
-        this.tags[tag].push({
-          regularPath: page.regularPath,
-          title: page.title,
-        });
+        this.tags[tag].push(page);
       });
     });
 
