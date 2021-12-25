@@ -2,7 +2,7 @@
   <div>
     <ul>
       <li v-for="tag in tagList">
-        <p>{{ tag.tagName }}</p>
+        <p>{{ tag.name }}</p>
         <ul>
           <li v-for="page in tag.pages">
             <a :href="page.regularPath">
@@ -40,7 +40,7 @@ export default {
 
     for (const tag in this.tags) {
       this.tagList.push({
-        tagName: tag,
+        name: tag,
         pages: this.tags[tag],
       });
     }
