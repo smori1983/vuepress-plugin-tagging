@@ -1,12 +1,12 @@
 <template>
   <div>
-    <ul>
-      <li v-for="tag in tagList">
-        <p>{{ tag.name }}</p>
-        <ul>
-          <li v-for="page in tag.pages">
+    <ul class="tags">
+      <li v-for="tag in tagList" class="tag">
+        <p class="tag-name">{{ tag.name }}</p>
+        <ul class="tag-pages">
+          <li v-for="page in tag.pages" class="tag-page">
             <a :href="page.regularPath">
-              <span>{{ page.title }}</span>
+              <span class="tag-page-title">{{ page.title }}</span>
             </a>
           </li>
         </ul>
