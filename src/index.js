@@ -32,6 +32,10 @@ module.exports = (options, ctx) => ({
       });
     }
 
+    tagList.sort((a, b) => {
+      return a.name < b.name ? -1 : 1;
+    });
+
     return [
       {
         name: 'vuepress-plugin-tagging/tag-list.js',
