@@ -16,31 +16,17 @@
 </template>
 
 <script>
+import tagList from '@dynamic/vuepress-plugin-tagging/tag-list';
+
 export default {
   data() {
     return {
-      tags: {},
       tagList: [],
     };
   },
 
   mounted() {
-    this.$site.pages.forEach((page) => {
-      const tags = page.frontmatter.tags || [];
-      tags.forEach((tag) => {
-        if (!this.tags[tag]) {
-          this.tags[tag] = [];
-        }
-        this.tags[tag].push(page);
-      });
-    });
-
-    for (const tag in this.tags) {
-      this.tagList.push({
-        name: tag,
-        pages: this.tags[tag],
-      });
-    }
+    this.tagList = tagList;
   }
 };
 </script>
