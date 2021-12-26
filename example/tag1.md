@@ -1,3 +1,3 @@
 # Tag List (Type 1)
 
-<TaggingTagListType1 />
+<PluginTaggingTagListType1 />
