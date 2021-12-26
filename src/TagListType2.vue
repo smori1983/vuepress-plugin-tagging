@@ -57,9 +57,12 @@ export default {
   border: 1px solid $borderColor;
 
   span {
+    display: inline-block;
     cursor: pointer;
     margin-right: 1 rem;
+    line-height: 1.2em;
 
+    &:hover,
     &.selected {
       color: $accentColor;
     }
