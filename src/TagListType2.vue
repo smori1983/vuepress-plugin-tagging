@@ -41,11 +41,12 @@ export default {
     selectTag(tagName) {
       this.currentTagName = tagName;
 
-      this.tagList.forEach((tag) => {
-        if (tag.name === tagName) {
-          this.currentPages = tag.pages;
+      for (let i = 0, len = this.tagList.length; i < len; i++) {
+        if (this.tagList[i].name === tagName) {
+          this.currentPages = this.tagList[i].pages;
+          break;
         }
-      });
+      }
     },
   },
 };
