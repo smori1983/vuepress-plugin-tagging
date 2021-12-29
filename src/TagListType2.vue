@@ -7,8 +7,8 @@
         @click="selectTag(tag.name)"
       >{{ tag.name }}</span>
     </div>
-    <ul class="tag-pages" v-if="currentTagName">
-      <li v-for="page in currentPages">
+    <ul class="tag-pages" v-if="currentTag">
+      <li v-for="page in currentTag.pages">
         <a :href="page.regularPath">
           <span class="tag-page-title">{{ page.title }}</span>
         </a>
@@ -24,8 +24,7 @@ export default {
   data() {
     return {
       tagList: [],
-      currentTagName: null,
-      currentPages: [],
+      currentTag: null,
     };
   },
 
@@ -35,15 +34,13 @@ export default {
 
   methods: {
     isSelectedTag(tagName) {
-      return this.currentTagName === tagName;
+      return this.currentTag && this.currentTag.name === tagName;
     },
 
     selectTag(tagName) {
-      this.currentTagName = tagName;
-
       for (let i = 0, len = this.tagList.length; i < len; i++) {
         if (this.tagList[i].name === tagName) {
-          this.currentPages = this.tagList[i].pages;
+          this.currentTag = this.tagList[i];
           break;
         }
       }
