@@ -3,11 +3,9 @@
     <ul class="tags">
       <li v-for="tag in tagList" class="tag">
         <p class="tag-name">{{ tag.name }}</p>
-        <ul class="tag-pages">
-          <li v-for="page in tag.pages" class="tag-page">
-            <page-link v-bind:page="page"></page-link>
-          </li>
-        </ul>
+        <page-list
+          v-bind:pages="tag.pages"
+        ></page-list>
       </li>
     </ul>
   </div>
@@ -15,11 +13,11 @@
 
 <script>
 import tagList from '@dynamic/vuepress-plugin-tagging/tag-list';
-import PageLink from './PageLink';
+import PageList from './PageList';
 
 export default {
   components: {
-    PageLink,
+    PageList,
   },
 
   data() {

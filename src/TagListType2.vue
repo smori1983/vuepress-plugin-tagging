@@ -7,21 +7,20 @@
         @click="selectTag(tag.name)"
       >{{ tag.name }}</span>
     </div>
-    <ul class="tag-pages" v-if="currentTag">
-      <li v-for="page in currentTag.pages">
-        <page-link v-bind:page="page"></page-link>
-      </li>
-    </ul>
+    <page-list
+      v-if="currentTag"
+      v-bind:pages="currentTag.pages"
+    ></page-list>
   </div>
 </template>
 
 <script>
 import tagList from '@dynamic/vuepress-plugin-tagging/tag-list';
-import PageLink from './PageLink';
+import PageList from './PageList';
 
 export default {
   components: {
-    PageLink,
+    PageList,
   },
 
   data() {
