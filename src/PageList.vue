@@ -18,7 +18,10 @@ export default {
   },
 
   props: {
-    pages: Array,
+    pages: {
+      type: Array,
+      required: true,
+    },
   },
 };
 </script>
