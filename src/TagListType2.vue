@@ -3,6 +3,7 @@
     <div class="tag-list">
       <span
         v-for="tag in tagList"
+        class="tag-list-item"
         :class="{ selected: isSelectedTag(tag.name) }"
         @click="selectTag(tag.name)"
       >{{ tag.name }}</span>
@@ -56,7 +57,7 @@ export default {
   padding: 1rem;
   border: 1px solid $borderColor;
 
-  span {
+  .tag-list-item {
     display: inline-block;
     cursor: pointer;
     margin-right: 1 rem;
