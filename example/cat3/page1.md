@@ -11,6 +11,7 @@ tags:
   - pineapple
   - raspberry
   - strawberry
+permalink: /category3-page1.html
 ---
 
 # Category3 - Page1
