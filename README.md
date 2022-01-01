@@ -13,7 +13,7 @@
       {
         "key": "v-xxxxxxxx",
         "title": "<page title>",
-        "regularPath": "<page path>"
+        "path": "<page path>"
       },
       ...
     ]
