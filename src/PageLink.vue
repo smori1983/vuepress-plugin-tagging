@@ -1,5 +1,5 @@
 <template>
-  <a :href="page.regularPath">
+  <a :href="page.path">
     <span class="tag-page-title">{{ page.title }}</span>
   </a>
 </template>

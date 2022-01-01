@@ -13,7 +13,7 @@ module.exports = (options, ctx) => ({
         tagsMemo[tag].push({
           key: page.key,
           title: page.title,
-          regularPath: page.regularPath,
+          path: page.path,
         });
       });
     });
