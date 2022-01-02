@@ -18,6 +18,15 @@ const resolveLocale = (page, locales) => {
   return '/';
 };
 
+/**
+ * @param {Object[]} pages
+ */
+const sortPages = (pages) => {
+  pages.sort((a, b) => {
+    return a.title < b.title ? -1 : 1;
+  });
+};
+
 module.exports = (options, ctx) => ({
   enhanceAppFiles: [
     path.resolve(__dirname, 'enhanceAppFile.js'),
@@ -51,16 +60,12 @@ module.exports = (options, ctx) => ({
     });
 
     for (const tag in tagsMemo.all) {
-      tagsMemo.all[tag].sort((a, b) => {
-        return a.title < b.title ? -1 : 1;
-      });
+      sortPages(tagsMemo.all[tag]);
     }
 
     for (const locale in tagsMemo.locales) {
       for (const tag in tagsMemo.locales[locale]) {
-        tagsMemo.locales[locale][tag].sort((a, b) => {
-          return a.title < b.title ? -1 : 1;
-        });
+        sortPages(tagsMemo.locales[locale][tag]);
       }
     }
 
