@@ -27,6 +27,19 @@ const sortPages = (pages) => {
   });
 };
 
+const createTagList = (tagPages) => {
+  const result = [];
+
+  for (const tag in tagPages) {
+    result.push({
+      name: tag,
+      pages: tagPages[tag],
+    });
+  }
+
+  return result;
+};
+
 /**
  * @param {Object[]} tagList
  */
@@ -78,25 +91,13 @@ module.exports = (options, ctx) => ({
       }
     }
 
-    const tagList = [];
-    for (const tag in tagsMemo.all) {
-      tagList.push({
-        name: tag,
-        pages: tagsMemo.all[tag],
-      });
-    }
+    const tagList = createTagList(tagsMemo.all);
 
     sortTags(tagList);
 
     const tagListI18n = {};
     for (const locale in tagsMemo.locales) {
-      tagListI18n[locale] = [];
-      for (const tag in tagsMemo.locales[locale]) {
-        tagListI18n[locale].push({
-          name: tag,
-          pages: tagsMemo.locales[locale][tag],
-        });
-      }
+      tagListI18n[locale] = createTagList(tagsMemo.locales[locale]);
     }
 
     for (const locale in tagListI18n) {
