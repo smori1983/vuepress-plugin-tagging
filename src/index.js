@@ -31,6 +31,8 @@ const createTagList = (tagPages) => {
   const result = [];
 
   for (const tag in tagPages) {
+    sortPages(tagPages[tag]);
+
     result.push({
       name: tag,
       pages: tagPages[tag],
@@ -83,17 +85,7 @@ module.exports = (options, ctx) => ({
       });
     });
 
-    for (const tag in tagsMemo.all) {
-      sortPages(tagsMemo.all[tag]);
-    }
-
     const tagListAll = createTagList(tagsMemo.all);
-
-    for (const locale in tagsMemo.locales) {
-      for (const tag in tagsMemo.locales[locale]) {
-        sortPages(tagsMemo.locales[locale][tag]);
-      }
-    }
 
     const tagListI18n = {};
     for (const locale in tagsMemo.locales) {
