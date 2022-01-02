@@ -85,15 +85,15 @@ module.exports = (options, ctx) => ({
       sortPages(tagsMemo.all[tag]);
     }
 
+    const tagListAll = createTagList(tagsMemo.all);
+
+    sortTags(tagListAll);
+
     for (const locale in tagsMemo.locales) {
       for (const tag in tagsMemo.locales[locale]) {
         sortPages(tagsMemo.locales[locale][tag]);
       }
     }
-
-    const tagListAll = createTagList(tagsMemo.all);
-
-    sortTags(tagListAll);
 
     const tagListI18n = {};
     for (const locale in tagsMemo.locales) {
