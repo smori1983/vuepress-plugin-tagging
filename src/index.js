@@ -37,6 +37,8 @@ const createTagList = (tagPages) => {
     });
   }
 
+  sortTags(result);
+
   return result;
 };
 
@@ -87,8 +89,6 @@ module.exports = (options, ctx) => ({
 
     const tagListAll = createTagList(tagsMemo.all);
 
-    sortTags(tagListAll);
-
     for (const locale in tagsMemo.locales) {
       for (const tag in tagsMemo.locales[locale]) {
         sortPages(tagsMemo.locales[locale][tag]);
@@ -98,10 +98,6 @@ module.exports = (options, ctx) => ({
     const tagListI18n = {};
     for (const locale in tagsMemo.locales) {
       tagListI18n[locale] = createTagList(tagsMemo.locales[locale]);
-    }
-
-    for (const locale in tagListI18n) {
-      sortTags(tagListI18n[locale]);
     }
 
     return [
