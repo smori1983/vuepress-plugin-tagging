@@ -1,22 +1,5 @@
 const { path } = require('@vuepress/shared-utils');
-
-/**
- * @param {Object} page
- * @param {string[]} locales
- */
-const resolveLocale = (page, locales) => {
-  for (let i = 0, len = locales.length; i < len; i++) {
-    if (locales[i] === '/') {
-      continue;
-    }
-
-    if (page.regularPath.indexOf(locales[i]) === 0) {
-      return locales[i];
-    }
-  }
-
-  return '/';
-};
+const util = require('./util');
 
 /**
  * @param {Object[]} pages
@@ -59,6 +42,7 @@ module.exports = (options, ctx) => ({
   ],
   clientDynamicModules() {
     const locales = ctx.siteConfig.locales || {};
+    const localeResolver = new util.LocaleResolver(Object.keys(locales));
 
     const tagsMemo = {
       all: {},
@@ -66,7 +50,7 @@ module.exports = (options, ctx) => ({
     };
 
     ctx.pages.forEach((page) => {
-      const locale = resolveLocale(page, Object.keys(locales));
+      const locale = localeResolver.resolve(page);
       tagsMemo.locales[locale] = tagsMemo.locales[locale] || {};
 
       const tags = page.frontmatter.tags || [];
