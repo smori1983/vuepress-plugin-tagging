@@ -91,9 +91,9 @@ module.exports = (options, ctx) => ({
       }
     }
 
-    const tagList = createTagList(tagsMemo.all);
+    const tagListAll = createTagList(tagsMemo.all);
 
-    sortTags(tagList);
+    sortTags(tagListAll);
 
     const tagListI18n = {};
     for (const locale in tagsMemo.locales) {
@@ -107,7 +107,7 @@ module.exports = (options, ctx) => ({
     return [
       {
         name: 'vuepress-plugin-tagging/tag-list.js',
-        content: `export default ${JSON.stringify(tagList, null, 2)}`,
+        content: `export default ${JSON.stringify(tagListAll, null, 2)}`,
       },
       {
         name: 'vuepress-plugin-tagging/tag-list-i18n.js',
