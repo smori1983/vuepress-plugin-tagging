@@ -17,6 +17,8 @@ module.exports = {
         nav: [
           { text: 'Tag1', link: '/tag1.html' },
           { text: 'Tag2', link: '/tag2.html' },
+          { text: 'Tag3', link: '/tag3.html' },
+          { text: 'Tag4', link: '/tag4.html' },
         ],
         sidebar: [
           { collapsable: false, title: 'cat1', children: ['/cat1/page1', '/cat1/page2', '/cat1/page3'] },
@@ -29,6 +31,8 @@ module.exports = {
         nav: [
           { text: 'タグ一覧1', link: '/ja/tag1.html' },
           { text: 'タグ一覧2', link: '/ja/tag2.html' },
+          { text: 'タグ一覧3', link: '/ja/tag3.html' },
+          { text: 'タグ一覧4', link: '/ja/tag4.html' },
         ],
         sidebar: [
           { collapsable: false, title: 'カテゴリ1', children: ['/ja/cat1/page1', '/ja/cat1/page2', '/ja/cat1/page3'] },
