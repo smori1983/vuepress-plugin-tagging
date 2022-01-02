@@ -15,6 +15,7 @@ module.exports = {
       '/': {
         label: 'English',
         nav: [
+          { text: 'Debug', link: '/tag_debug.html' },
           { text: 'Tag1', link: '/tag1.html' },
           { text: 'Tag2', link: '/tag2.html' },
           { text: 'Tag3', link: '/tag3.html' },
