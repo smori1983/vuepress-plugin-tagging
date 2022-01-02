@@ -27,6 +27,15 @@ const sortPages = (pages) => {
   });
 };
 
+/**
+ * @param {Object[]} tagList
+ */
+const sortTags = (tagList) => {
+  tagList.sort((a, b) => {
+    return a.name < b.name ? -1 : 1;
+  });
+};
+
 module.exports = (options, ctx) => ({
   enhanceAppFiles: [
     path.resolve(__dirname, 'enhanceAppFile.js'),
@@ -77,9 +86,7 @@ module.exports = (options, ctx) => ({
       });
     }
 
-    tagList.sort((a, b) => {
-      return a.name < b.name ? -1 : 1;
-    });
+    sortTags(tagList);
 
     const tagListI18n = {};
     for (const locale in tagsMemo.locales) {
@@ -93,9 +100,7 @@ module.exports = (options, ctx) => ({
     }
 
     for (const locale in tagListI18n) {
-      tagListI18n[locale].sort((a, b) => {
-        return a.name < b.name ? -1 : 1;
-      });
+      sortTags(tagListI18n[locale]);
     }
 
     return [
