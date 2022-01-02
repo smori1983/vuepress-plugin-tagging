@@ -25,36 +25,29 @@ module.exports = (options, ctx) => ({
   clientDynamicModules() {
     const locales = ctx.siteConfig.locales || {};
 
-    const hasLocales = Object.keys(locales).length > 0;
-
     const tagsMemo = {
       all: {},
       locales: {},
     };
 
     ctx.pages.forEach((page) => {
+      const locale = resolveLocale(page, Object.keys(locales));
+      tagsMemo.locales[locale] = tagsMemo.locales[locale] || {};
+
       const tags = page.frontmatter.tags || [];
       tags.forEach((tag) => {
-        tagsMemo.all[tag] = tagsMemo.all[tag] || [];
-        tagsMemo.all[tag].push({
+        const pageData = {
           key: page.key,
           title: page.title,
           path: page.path,
-        });
-      });
+        };
 
-      if (hasLocales) {
-        const locale = resolveLocale(page, Object.keys(locales));
-        tagsMemo.locales[locale] = tagsMemo.locales[locale] || {};
-        tags.forEach((tag) => {
-          tagsMemo.locales[locale][tag] = tagsMemo.locales[locale][tag] || [];
-          tagsMemo.locales[locale][tag].push({
-            key: page.key,
-            title: page.title,
-            path: page.path,
-          });
-        });
-      }
+        tagsMemo.all[tag] = tagsMemo.all[tag] || [];
+        tagsMemo.all[tag].push(pageData);
+
+        tagsMemo.locales[locale][tag] = tagsMemo.locales[locale][tag] || [];
+        tagsMemo.locales[locale][tag].push(pageData);
+      });
     });
 
     for (const tag in tagsMemo.all) {
