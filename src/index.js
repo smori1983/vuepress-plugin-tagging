@@ -8,7 +8,7 @@ module.exports = (options, ctx) => ({
   clientDynamicModules() {
     const locales = ctx.siteConfig.locales || {};
     const localeResolver = new util.LocaleResolver(Object.keys(locales));
-    const memo = new util.TagsMemo(Object.keys(locales));
+    const memo = new util.TagsMemo(localeResolver.locales());
 
     ctx.pages.forEach((page) => {
       const tags = page.frontmatter.tags || [];

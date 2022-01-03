@@ -6,7 +6,14 @@ class LocaleResolver {
     /**
      * @private
      */
-    this._locales = locales;
+    this._locales = ['/', ...locales];
+  }
+
+  /**
+   * @returns {string[]}
+   */
+  locales() {
+    return this._locales;
   }
 
   /**
