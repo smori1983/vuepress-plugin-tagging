@@ -4,9 +4,15 @@ class LocaleResolver {
    */
   constructor(locales) {
     /**
+     * @type {string}
      * @private
      */
-    this._locales = ['/', ...locales];
+    this._default = '/';
+
+    /**
+     * @private
+     */
+    this._locales = [this._default, ...locales];
   }
 
   /**
@@ -22,7 +28,7 @@ class LocaleResolver {
    */
   resolve(page) {
     for (let i = 0, len = this._locales.length; i < len; i++) {
-      if (this._locales[i] === '/') {
+      if (this._locales[i] === this._default) {
         continue;
       }
 
@@ -31,7 +37,7 @@ class LocaleResolver {
       }
     }
 
-    return '/';
+    return this._default;
   }
 }
 
