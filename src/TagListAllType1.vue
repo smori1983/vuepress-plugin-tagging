@@ -1,23 +1,14 @@
 <template>
-  <div>
-    <ul class="tags">
-      <li v-for="tag in tagList" class="tag">
-        <p class="tag-name">{{ tag.name }}</p>
-        <page-list
-          v-bind:pages="tag.pages"
-        ></page-list>
-      </li>
-    </ul>
-  </div>
+  <tag-list-type1 v-bind:tag-list="tagList"></tag-list-type1>
 </template>
 
 <script>
 import tagList from '@dynamic/vuepress-plugin-tagging/tag-list';
-import PageList from './PageList';
+import TagListType1 from './TagListType1';
 
 export default {
   components: {
-    PageList,
+    TagListType1,
   },
 
   data() {
@@ -28,9 +19,6 @@ export default {
 
   mounted() {
     this.tagList = tagList;
-  }
+  },
 };
 </script>
-
-<style lang="stylus" scoped>
-</style>
