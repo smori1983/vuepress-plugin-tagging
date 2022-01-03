@@ -1,3 +1,3 @@
-# Tag List (i18n Type 2)
+# Tag list (i18n type 2)
 
 <PluginTaggingTagListI18nType2/>

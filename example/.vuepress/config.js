@@ -3,9 +3,9 @@ module.exports = {
 
   themeConfig: {
     nav: [
-      { text: 'Debug', link: '/tag_debug.html' },
-      { text: 'Tag1', link: '/tag1.html' },
-      { text: 'Tag2', link: '/tag2.html' },
+      { text: 'Debug', link: '/tags_debug.html' },
+      { text: 'Tags (all-1)', link: '/tags_all_type1.html' },
+      { text: 'Tags (all-2)', link: '/tags_all_type2.html' },
     ],
     sidebar: [
       { collapsable: false, title: 'cat1', children: ['/cat1/page1', '/cat1/page2', '/cat1/page3'] },

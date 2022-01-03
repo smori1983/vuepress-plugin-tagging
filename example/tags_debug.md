@@ -1,3 +1,3 @@
-# Tag List (Debug)
+# Tag list (debug)
 
 <PluginTaggingTagListDebug/>
