@@ -56,17 +56,23 @@ class TagsMemo {
      */
     this._i18n = {};
 
-    locales.forEach((locale) => {
+    /**
+     * @type {LocaleResolver}
+     * @private
+     */
+    this._localeResolver = new LocaleResolver(locales);
+    this._localeResolver.locales().forEach((locale) => {
       this._i18n[locale] = {};
     });
   }
 
   /**
    * @param {string[]} tags
-   * @param {string} locale
    * @param {Object} pageData
    */
-  add(tags, locale, pageData) {
+  add(tags, pageData) {
+    const locale = this._localeResolver.resolve(pageData);
+
     tags.forEach((tag) => {
       this._all[tag] = this._all[tag] || [];
       this._all[tag].push(pageData);
@@ -126,5 +132,4 @@ const sortTags = (tagList) => {
   });
 };
 
-module.exports.LocaleResolver = LocaleResolver;
 module.exports.TagsMemo = TagsMemo;
