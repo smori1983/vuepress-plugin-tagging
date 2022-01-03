@@ -12,13 +12,13 @@ module.exports = (options, ctx) => ({
 
     ctx.pages.forEach((page) => {
       const locale = localeResolver.resolve(page);
+      const pageData = {
+        key: page.key,
+        title: page.title,
+        path: page.path,
+      };
       const tags = page.frontmatter.tags || [];
       tags.forEach((tag) => {
-        const pageData = {
-          key: page.key,
-          title: page.title,
-          path: page.path,
-        };
         memo.add(tag, pageData, locale);
       });
     });
