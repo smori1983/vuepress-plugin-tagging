@@ -11,16 +11,14 @@ module.exports = (options, ctx) => ({
     const memo = new util.TagsMemo(Object.keys(locales));
 
     ctx.pages.forEach((page) => {
+      const tags = page.frontmatter.tags || [];
       const locale = localeResolver.resolve(page);
       const pageData = {
         key: page.key,
         title: page.title,
         path: page.path,
       };
-      const tags = page.frontmatter.tags || [];
-      tags.forEach((tag) => {
-        memo.add(tag, pageData, locale);
-      });
+      memo.add(tags, locale, pageData);
     });
 
     const tagListAll = memo.tagListAll();

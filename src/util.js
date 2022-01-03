@@ -49,16 +49,18 @@ class TagsMemo {
   }
 
   /**
-   * @param {string} tag
-   * @param {Object} pageData
+   * @param {string[]} tags
    * @param {string} locale
+   * @param {Object} pageData
    */
-  add(tag, pageData, locale) {
-    this._all[tag] = this._all[tag] || [];
-    this._all[tag].push(pageData);
+  add(tags, locale, pageData) {
+    tags.forEach((tag) => {
+      this._all[tag] = this._all[tag] || [];
+      this._all[tag].push(pageData);
 
-    this._i18n[locale][tag] = this._i18n[locale][tag] || [];
-    this._i18n[locale][tag].push(pageData);
+      this._i18n[locale][tag] = this._i18n[locale][tag] || [];
+      this._i18n[locale][tag].push(pageData);
+    });
   }
 
   tagListAll() {
