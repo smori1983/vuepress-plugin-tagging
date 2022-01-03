@@ -28,4 +28,41 @@ class LocaleResolver {
   }
 }
 
+const createTagList = (tagPages) => {
+  const result = [];
+
+  for (const tag in tagPages) {
+    sortPages(tagPages[tag]);
+
+    result.push({
+      name: tag,
+      pages: tagPages[tag],
+    });
+  }
+
+  sortTags(result);
+
+  return result;
+};
+
+/**
+ * @param {Object[]} pages
+ */
+const sortPages = (pages) => {
+  pages.sort((a, b) => {
+    return a.title < b.title ? -1 : 1;
+  });
+};
+
+/**
+ * @param {Object[]} tagList
+ */
+const sortTags = (tagList) => {
+  tagList.sort((a, b) => {
+    return a.name < b.name ? -1 : 1;
+  });
+};
+
+
 module.exports.LocaleResolver = LocaleResolver;
+module.exports.createTagList = createTagList;

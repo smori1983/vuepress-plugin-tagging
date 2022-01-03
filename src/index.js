@@ -1,41 +1,6 @@
 const { path } = require('@vuepress/shared-utils');
 const util = require('./util');
 
-/**
- * @param {Object[]} pages
- */
-const sortPages = (pages) => {
-  pages.sort((a, b) => {
-    return a.title < b.title ? -1 : 1;
-  });
-};
-
-const createTagList = (tagPages) => {
-  const result = [];
-
-  for (const tag in tagPages) {
-    sortPages(tagPages[tag]);
-
-    result.push({
-      name: tag,
-      pages: tagPages[tag],
-    });
-  }
-
-  sortTags(result);
-
-  return result;
-};
-
-/**
- * @param {Object[]} tagList
- */
-const sortTags = (tagList) => {
-  tagList.sort((a, b) => {
-    return a.name < b.name ? -1 : 1;
-  });
-};
-
 module.exports = (options, ctx) => ({
   enhanceAppFiles: [
     path.resolve(__dirname, 'enhanceAppFile.js'),
@@ -69,11 +34,11 @@ module.exports = (options, ctx) => ({
       });
     });
 
-    const tagListAll = createTagList(tagsMemo.all);
+    const tagListAll = util.createTagList(tagsMemo.all);
 
     const tagListI18n = {};
     for (const locale in tagsMemo.locales) {
-      tagListI18n[locale] = createTagList(tagsMemo.locales[locale]);
+      tagListI18n[locale] = util.createTagList(tagsMemo.locales[locale]);
     }
 
     return [
