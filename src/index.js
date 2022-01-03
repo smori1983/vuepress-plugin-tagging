@@ -21,17 +21,14 @@ module.exports = (options, ctx) => ({
       memo.add(tags, locale, pageData);
     });
 
-    const tagListAll = memo.tagListAll();
-    const tagListI18n = memo.tagListI18n();
-
     return [
       {
         name: 'vuepress-plugin-tagging/tag-list.js',
-        content: `export default ${JSON.stringify(tagListAll, null, 2)}`,
+        content: `export default ${JSON.stringify(memo.tagListAll(), null, 2)}`,
       },
       {
         name: 'vuepress-plugin-tagging/tag-list-i18n.js',
-        content: `export default ${JSON.stringify(tagListI18n, null, 2)}`,
+        content: `export default ${JSON.stringify(memo.tagListI18n(), null, 2)}`,
       },
     ];
   },
