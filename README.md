@@ -14,6 +14,7 @@
         "key": "v-xxxxxxxx",
         "title": "<page title>",
         "path": "<page path>"
+        "regularPath": "<page regular path>"
       },
       ...
     ]
@@ -22,15 +23,56 @@
 ]
 ```
 
+### `@dynamic/vuepress-plugin-tagging/tag-list-i18n`
+
+```
+{
+  "<locale path>": [
+    {
+      "name": "<tag name>",
+      "pages": [
+        {
+          "key": "v-xxxxxxxx",
+          "title": "<page title>",
+          "path": "<page path>"
+          "regularPath": "<page regular path>"
+        },
+        ...
+      ]
+    },
+    ...
+  ],
+  ...
+}
+```
+
 
 ## Predefined global components
 
+### all
+
 ```html
-<PluginTaggingTagListType1 />
+<PluginTaggingTagListAllType1/>
 ```
 
 ```html
-<PluginTaggingTagListType2 />
+<PluginTaggingTagListAllType2/>
+```
+
+### i18n (locale path specific)
+
+```html
+<PluginTaggingTagListI18nType1/>
+```
+
+```html
+<PluginTaggingTagListI18nType2/>
+```
+
+### debug
+
+```html
+<PluginTaggingTagListDebug/>
 ```
 
 
