@@ -1,3 +1,3 @@
 # Tag List (Type 2)
 
-<PluginTaggingTagListAllType2 />
+<PluginTaggingTagListAllType2/>
