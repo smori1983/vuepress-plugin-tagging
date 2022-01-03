@@ -8,16 +8,10 @@ module.exports = (options, ctx) => ({
   clientDynamicModules() {
     const locales = ctx.siteConfig.locales || {};
     const localeResolver = new util.LocaleResolver(Object.keys(locales));
-
-    const tagsMemo = {
-      all: {},
-      i18n: {},
-    };
+    const memo = new util.TagsMemo(Object.keys(locales));
 
     ctx.pages.forEach((page) => {
       const locale = localeResolver.resolve(page);
-      tagsMemo.i18n[locale] = tagsMemo.i18n[locale] || {};
-
       const tags = page.frontmatter.tags || [];
       tags.forEach((tag) => {
         const pageData = {
@@ -25,21 +19,12 @@ module.exports = (options, ctx) => ({
           title: page.title,
           path: page.path,
         };
-
-        tagsMemo.all[tag] = tagsMemo.all[tag] || [];
-        tagsMemo.all[tag].push(pageData);
-
-        tagsMemo.i18n[locale][tag] = tagsMemo.i18n[locale][tag] || [];
-        tagsMemo.i18n[locale][tag].push(pageData);
+        memo.add(tag, pageData, locale);
       });
     });
 
-    const tagListAll = util.createTagList(tagsMemo.all);
-
-    const tagListI18n = {};
-    for (const locale in tagsMemo.i18n) {
-      tagListI18n[locale] = util.createTagList(tagsMemo.i18n[locale]);
-    }
+    const tagListAll = memo.tagListAll();
+    const tagListI18n = memo.tagListI18n();
 
     return [
       {

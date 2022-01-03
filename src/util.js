@@ -28,6 +28,54 @@ class LocaleResolver {
   }
 }
 
+class TagsMemo {
+  /**
+   * @param {string[]} locales
+   */
+  constructor(locales) {
+    /**
+     * @private
+     */
+    this._all = {};
+
+    /**
+     * @private
+     */
+    this._i18n = {};
+
+    locales.forEach((locale) => {
+      this._i18n[locale] = {};
+    });
+  }
+
+  /**
+   * @param {string} tag
+   * @param {Object} pageData
+   * @param {string} locale
+   */
+  add(tag, pageData, locale) {
+    this._all[tag] = this._all[tag] || [];
+    this._all[tag].push(pageData);
+
+    this._i18n[locale][tag] = this._i18n[locale][tag] || [];
+    this._i18n[locale][tag].push(pageData);
+  }
+
+  tagListAll() {
+    return createTagList(this._all);
+  }
+
+  tagListI18n() {
+    const result = {};
+
+    for (const locale in this._i18n) {
+      result[locale] = createTagList(this._i18n[locale]);
+    }
+
+    return result;
+  }
+}
+
 const createTagList = (tagPages) => {
   const result = [];
 
@@ -63,6 +111,5 @@ const sortTags = (tagList) => {
   });
 };
 
-
 module.exports.LocaleResolver = LocaleResolver;
-module.exports.createTagList = createTagList;
+module.exports.TagsMemo = TagsMemo;
