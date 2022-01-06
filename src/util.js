@@ -120,6 +120,10 @@ const createTagList = (tagPages) => {
  */
 const sortPages = (pages) => {
   pages.sort((a, b) => {
+    if (a.title === b.title) {
+      return a.key < b.key ? -1 : 1;
+    }
+
     return a.title < b.title ? -1 : 1;
   });
 };
