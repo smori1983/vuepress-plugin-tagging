@@ -10,16 +10,17 @@ class LocaleResolver {
     this._default = '/';
 
     /**
+     * @type {Set<string>}
      * @private
      */
-    this._locales = [this._default, ...locales];
+    this._locales = new Set([this._default, ...locales]);
   }
 
   /**
    * @returns {string[]}
    */
   locales() {
-    return this._locales;
+    return Array.from(this._locales);
   }
 
   /**
@@ -27,13 +28,13 @@ class LocaleResolver {
    * @returns {string}
    */
   resolve(page) {
-    for (let i = 0, len = this._locales.length; i < len; i++) {
-      if (this._locales[i] === this._default) {
+    for (const item of this._locales) {
+      if (item === this._default) {
         continue;
       }
 
-      if (page.regularPath.indexOf(this._locales[i]) === 0) {
-        return this._locales[i];
+      if (page.regularPath.indexOf(item) === 0) {
+        return item;
       }
     }
 
@@ -119,6 +120,10 @@ const createTagList = (tagPages) => {
  */
 const sortPages = (pages) => {
   pages.sort((a, b) => {
+    if (a.title === b.title) {
+      return a.key < b.key ? -1 : 1;
+    }
+
     return a.title < b.title ? -1 : 1;
   });
 };
