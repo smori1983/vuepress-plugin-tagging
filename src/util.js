@@ -97,22 +97,6 @@ class TagsMemo {
     });
   }
 
-  /**
-   * @param {string[]} tags
-   * @param {Object} pageData
-   */
-  add(tags, pageData) {
-    const locale = this._localeResolver.resolve(pageData);
-
-    tags.forEach((tag) => {
-      this._all[tag] = this._all[tag] || [];
-      this._all[tag].push(pageData);
-
-      this._i18n[locale][tag] = this._i18n[locale][tag] || [];
-      this._i18n[locale][tag].push(pageData);
-    });
-  }
-
   tagListAll() {
     return createTagList(this._all);
   }
