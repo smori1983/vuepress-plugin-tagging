@@ -110,6 +110,55 @@ class TagsMemo {
 
     return result;
   }
+
+  /**
+   * @returns {TagData}
+   */
+  build() {
+    return new TagData(this._buildAll(), this._buildI18n());
+  }
+
+  /**
+   * @private
+   */
+  _buildAll() {
+    return createTagList(this._all);
+  }
+
+  /**
+   * @private
+   */
+  _buildI18n() {
+    const result = {};
+
+    for (const locale in this._i18n) {
+      result[locale] = createTagList(this._i18n[locale]);
+    }
+
+    return result;
+  }
+}
+
+class TagData {
+  constructor(all, i18n) {
+    /**
+     * @private
+     */
+    this._all = all;
+
+    /**
+     * @private
+     */
+    this._i18n = i18n;
+  }
+
+  all() {
+    return this._all;
+  }
+
+  i18n() {
+    return this._i18n;
+  }
 }
 
 const createTagList = (tagPages) => {
