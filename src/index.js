@@ -11,13 +11,7 @@ module.exports = (options, ctx) => ({
 
     ctx.pages.forEach((page) => {
       const tags = page.frontmatter.tags || [];
-      const pageData = {
-        key: page.key,
-        title: page.title,
-        path: page.path,
-        regularPath: page.regularPath,
-      };
-      memo.add(tags, pageData);
+      memo.add(tags, page.toJson());
     });
 
     return [
