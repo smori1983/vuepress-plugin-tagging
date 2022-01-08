@@ -30,6 +30,7 @@ module.exports = {
         selectText: '言語選択',
         label: '日本語',
         nav: [
+          { text: 'デバッグ', link: '/ja/tags_debug.html' },
           { text: 'タグ一覧 (all-1)', link: '/ja/tags_all_type1.html' },
           { text: 'タグ一覧 (all-2)', link: '/ja/tags_all_type2.html' },
           { text: 'タグ一覧 (i18n-1)', link: '/ja/tags_i18n_type1.html' },
