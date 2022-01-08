@@ -97,20 +97,6 @@ class TagsMemo {
     });
   }
 
-  tagListAll() {
-    return createTagList(this._all);
-  }
-
-  tagListI18n() {
-    const result = {};
-
-    for (const locale in this._i18n) {
-      result[locale] = createTagList(this._i18n[locale]);
-    }
-
-    return result;
-  }
-
   /**
    * @returns {TagData}
    */
