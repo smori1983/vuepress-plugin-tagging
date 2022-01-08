@@ -1,3 +1,7 @@
+/**
+ * @typedef {import('@vuepress/core/lib/node/Page')} Page
+ */
+
 class LocaleResolver {
   /**
    * @param {string[]} locales
@@ -24,7 +28,7 @@ class LocaleResolver {
   }
 
   /**
-   * @param {Object} page
+   * @param {Page} page
    * @returns {string}
    */
   resolve(page) {
@@ -64,6 +68,32 @@ class TagsMemo {
     this._localeResolver = new LocaleResolver(locales);
     this._localeResolver.locales().forEach((locale) => {
       this._i18n[locale] = {};
+    });
+  }
+
+  /**
+   * @param {Page[]} pages
+   */
+  addPages(pages) {
+    pages.forEach((page) => {
+      this.addPage(page);
+    });
+  }
+
+  /**
+   * @param {Page} page
+   */
+  addPage(page) {
+    const locale = this._localeResolver.resolve(page);
+    const tags = page.frontmatter.tags || [];
+    const pageData = page.toJson();
+
+    tags.forEach((tag) => {
+      this._all[tag] = this._all[tag] || [];
+      this._all[tag].push(pageData);
+
+      this._i18n[locale][tag] = this._i18n[locale][tag] || [];
+      this._i18n[locale][tag].push(pageData);
     });
   }
 

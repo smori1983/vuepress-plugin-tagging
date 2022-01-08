@@ -9,10 +9,7 @@ module.exports = (options, ctx) => ({
     const locales = ctx.siteConfig.locales || {};
     const memo = new util.TagsMemo(Object.keys(locales));
 
-    ctx.pages.forEach((page) => {
-      const tags = page.frontmatter.tags || [];
-      memo.add(tags, page.toJson());
-    });
+    memo.addPages(ctx.pages);
 
     return [
       {
