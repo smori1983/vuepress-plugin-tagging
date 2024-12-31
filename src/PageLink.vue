@@ -1,7 +1,5 @@
 <template>
-  <a :href="path">
-    <span class="tag-page-title">{{ title }}</span>
-  </a>
+  <router-link :to="path">{{ title }}</router-link>
 </template>
 
 <script>
