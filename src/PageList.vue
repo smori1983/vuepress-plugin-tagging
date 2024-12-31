@@ -4,22 +4,13 @@
       v-for="page in pages"
       class="tag-page"
     >
-      <page-link
-        v-bind:path="page.path"
-        v-bind:title="page.title"
-      ></page-link>
+      <router-link :to="page.path">{{ page.title }}</router-link>
     </li>
   </ul>
 </template>
 
 <script>
-import PageLink from './PageLink';
-
 export default {
-  components: {
-    PageLink,
-  },
-
   props: {
     pages: {
       type: Array,
