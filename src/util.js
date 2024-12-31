@@ -155,7 +155,7 @@ const createTagList = (tagPages) => {
 
     result.push({
       name: tag,
-      pages: tagPages[tag],
+      pages: extractPageKeyOnly(tagPages[tag]),
     });
   }
 
@@ -183,6 +183,16 @@ const sortPages = (pages) => {
 const sortTags = (tagList) => {
   tagList.sort((a, b) => {
     return a.name < b.name ? -1 : 1;
+  });
+};
+
+/**
+ * @param {Object[]} pages
+ * @returns {string[]}
+ */
+const extractPageKeyOnly = (pages) => {
+  return pages.map((page) => {
+    return page.key;
   });
 };
 

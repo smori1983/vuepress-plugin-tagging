@@ -10,7 +10,7 @@
     </div>
     <page-list
       v-if="currentTag"
-      v-bind:pages="currentTag.pages"
+      v-bind:page-keys="currentTag.pages"
     ></page-list>
   </div>
 </template>
