@@ -4,7 +4,10 @@
       v-for="page in pages"
       class="tag-page"
     >
-      <page-link v-bind:page="page"></page-link>
+      <page-link
+        v-bind:path="page.path"
+        v-bind:title="page.title"
+      ></page-link>
     </li>
   </ul>
 </template>
