@@ -12,9 +12,38 @@
 <script>
 export default {
   props: {
-    pages: {
+    pageKeys: {
       type: Array,
       required: true,
+    },
+  },
+
+  data() {
+    return {
+      pages: [],
+    };
+  },
+
+  mounted() {
+    this.updatePages();
+  },
+
+  watch: {
+    pageKeys() {
+      this.updatePages();
+    }
+  },
+
+  methods: {
+    updatePages() {
+      this.pages = [];
+      this.pageKeys.forEach((key) => {
+        const page = this.$site.pages.find(page => page.key === key);
+
+        if (page) {
+          this.pages.push(page);
+        }
+      });
     },
   },
 };

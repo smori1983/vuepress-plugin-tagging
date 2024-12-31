@@ -4,7 +4,7 @@
       <li v-for="tag in tagList" class="tag">
         <p class="tag-name">{{ tag.name }}</p>
         <page-list
-          v-bind:pages="tag.pages"
+          v-bind:page-keys="tag.pages"
         ></page-list>
       </li>
     </ul>
