@@ -5,6 +5,9 @@
 
     <h2>@dynamic/vuepress-plugin-tagging/tag-list-i18n</h2>
     <pre class="json">{{ tagListI18n }}</pre>
+
+    <h2>$site.pages</h2>
+    <pre class="json">{{ pages }}</pre>
   </div>
 </template>
 
@@ -17,12 +20,14 @@ export default {
     return {
       tagList: null,
       tagListI18n: null,
+      pages: null,
     }
   },
 
   mounted() {
     this.tagList = tagList;
     this.tagListI18n = tagListI18n;
+    this.pages = this.$site.pages;
   }
 }
 </script>
