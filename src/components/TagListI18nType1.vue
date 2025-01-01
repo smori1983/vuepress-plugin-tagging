@@ -3,8 +3,8 @@
 </template>
 
 <script>
-import tagList from '@dynamic/vuepress-plugin-tagging/tag-list';
-import TagListType1 from './TagListType1';
+import tagList from '@dynamic/vuepress-plugin-tagging/tag-list-i18n';
+import TagListType1 from './TagListType1.vue';
 
 export default {
   components: {
@@ -18,7 +18,7 @@ export default {
   },
 
   mounted() {
-    this.tagList = tagList;
+    this.tagList = tagList[this.$localePath];
   },
 };
 </script>

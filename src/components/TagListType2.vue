@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import PageList from './PageList';
+import PageList from './PageList.vue';
 
 export default {
   components: {

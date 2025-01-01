@@ -1,8 +1,8 @@
-import TagListAllType1 from './TagListAllType1';
-import TagListAllType2 from './TagListAllType2';
-import TagListI18nType1 from './TagListI18nType1';
-import TagListI18nType2 from './TagListI18nType2';
-import Debug from './Debug';
+import TagListAllType1 from './components/TagListAllType1.vue';
+import TagListAllType2 from './components/TagListAllType2.vue';
+import TagListI18nType1 from './components/TagListI18nType1.vue';
+import TagListI18nType2 from './components/TagListI18nType2.vue';
+import Debug from './components/Debug.vue';
 
 export default ({ Vue }) => {
   Vue.component('PluginTaggingTagListAllType1', TagListAllType1);
