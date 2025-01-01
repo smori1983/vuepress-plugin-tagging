@@ -1,49 +1,21 @@
 # vuepress-plugin-tagging
 
 
-## clientDynamicModules
+## Configuration example
 
-### `@dynamic/vuepress-plugin-tagging/tag-list`
+Suppose you created markdown (`tags.md`) using global component.
 
-```
-[
-  {
-    "name": "<tag name>",
-    "pages": [
-      {
-        "key": "v-xxxxxxxx",
-        "title": "<page title>",
-        "path": "<page path>"
-        "regularPath": "<page regular path>"
-      },
-      ...
-    ]
+```js
+module.exports = {
+  themeConfig: {
+    nav: [
+      {text: 'Tags', link: '/tags.html'},
+    ],
   },
-  ...
-]
-```
-
-### `@dynamic/vuepress-plugin-tagging/tag-list-i18n`
-
-```
-{
-  "<locale path>": [
-    {
-      "name": "<tag name>",
-      "pages": [
-        {
-          "key": "v-xxxxxxxx",
-          "title": "<page title>",
-          "path": "<page path>"
-          "regularPath": "<page regular path>"
-        },
-        ...
-      ]
-    },
-    ...
+  plugins: [
+    'tagging',
   ],
-  ...
-}
+};
 ```
 
 
@@ -76,19 +48,39 @@
 ```
 
 
-## Configuration example
+## clientDynamicModules
 
-Suppose you created markdown (`tags.md`) using global component.
+### `@dynamic/vuepress-plugin-tagging/tag-list`
 
-```js
-module.exports = {
-  themeConfig: {
-    nav: [
-      {text: 'Tags', link: '/tags.html'},
-    ],
+```
+[
+  {
+    "name": "<tag name>",
+    "pages": [
+      "v-xxxxxxxx",
+      "v-xxxxxxxx",
+      ...
+    ]
   },
-  plugins: [
-    'tagging',
+  ...
+]
+```
+
+### `@dynamic/vuepress-plugin-tagging/tag-list-i18n`
+
+```
+{
+  "<locale path>": [
+    {
+      "name": "<tag name>",
+      "pages": [
+        "v-xxxxxxxx",
+        "v-xxxxxxxx",
+        ...
+      ]
+    },
+    ...
   ],
-};
+  ...
+}
 ```
