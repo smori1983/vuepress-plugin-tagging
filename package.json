@@ -5,7 +5,6 @@
   "main": "src/index.js",
   "scripts": {
     "dev": "vuepress dev example/",
-    "dev:i18n": "vuepress dev example_i18n/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
