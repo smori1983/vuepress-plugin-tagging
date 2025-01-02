@@ -1,6 +1,9 @@
 # vuepress-plugin-tagging
 
 
+Visit [demo site](https://smori1983.github.io/vuepress-plugin-tagging-demo/).
+
+
 ## Configuration example
 
 Suppose you created markdown (`tags.md`) using global component.
