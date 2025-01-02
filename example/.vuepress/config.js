@@ -11,6 +11,8 @@ module.exports = {
   },
 
   themeConfig: {
+    search: false,
+
     locales: {
       '/': {
         label: 'English',
