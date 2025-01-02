@@ -1,6 +1,6 @@
 {
   "name": "vuepress-plugin-tagging",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "VuePress plugin for creating tag pages using frontmatter.",
   "main": "src/index.js",
   "scripts": {
