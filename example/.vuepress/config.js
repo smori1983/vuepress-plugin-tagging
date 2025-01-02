@@ -18,10 +18,10 @@ module.exports = {
         label: 'English',
         nav: [
           { text: 'Debug', link: '/tags_debug.html' },
-          { text: 'Tags (all-1)', link: '/tags_all_type1.html' },
-          { text: 'Tags (all-2)', link: '/tags_all_type2.html' },
-          { text: 'Tags (i18n-1)', link: '/tags_i18n_type1.html' },
-          { text: 'Tags (i18n-2)', link: '/tags_i18n_type2.html' },
+          { text: 'Tags (all type 1)', link: '/tags_all_type1.html' },
+          { text: 'Tags (all type 2)', link: '/tags_all_type2.html' },
+          { text: 'Tags (i18n type 1)', link: '/tags_i18n_type1.html' },
+          { text: 'Tags (i18n type 2)', link: '/tags_i18n_type2.html' },
         ],
         sidebar: [
           { collapsable: false, title: 'cat1', children: ['/cat1/page1', '/cat1/page2'] },
@@ -33,10 +33,10 @@ module.exports = {
         label: '日本語',
         nav: [
           { text: 'デバッグ', link: '/ja/tags_debug.html' },
-          { text: 'タグ一覧 (all-1)', link: '/ja/tags_all_type1.html' },
-          { text: 'タグ一覧 (all-2)', link: '/ja/tags_all_type2.html' },
-          { text: 'タグ一覧 (i18n-1)', link: '/ja/tags_i18n_type1.html' },
-          { text: 'タグ一覧 (i18n-2)', link: '/ja/tags_i18n_type2.html' },
+          { text: 'タグ一覧 (all type 1)', link: '/ja/tags_all_type1.html' },
+          { text: 'タグ一覧 (all type 2)', link: '/ja/tags_all_type2.html' },
+          { text: 'タグ一覧 (i18n type 1)', link: '/ja/tags_i18n_type1.html' },
+          { text: 'タグ一覧 (i18n type 2)', link: '/ja/tags_i18n_type2.html' },
         ],
         sidebar: [
           { collapsable: false, title: 'カテゴリ1', children: ['/ja/cat1/page1', '/ja/cat1/page2'] },

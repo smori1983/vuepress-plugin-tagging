@@ -1,3 +1,3 @@
-# タグ一覧（all タイプ1）
+# タグ一覧（all type 1）
 
 <PluginTaggingTagListAllType1/>
